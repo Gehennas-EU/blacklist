@@ -10,5 +10,6 @@
 ## Author: fen4o
 ## Version: @project-version@
 ## X-Website: https://github.com/Gehennas-EU/blacklist
+## X-Wago-ID: Rn6VQ8Nd
 
 blacklist.lua
