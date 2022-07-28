@@ -1,0 +1,14 @@
+## Interface: 20504
+## X-Min-Interface: 20504
+## X-Min-Interface-BCC: 20504
+
+
+## Title:|cffffd200Gehennas Blacklist Data|r
+## Notes: Gehennas Blacklist Data
+## LoadOnDemand: 0
+## DefaultState: enabled
+## Author: fen4o
+## Version: @project-version@
+## X-Website: https://github.com/Gehennas-EU/blacklist
+
+blacklist.lua
