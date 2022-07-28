@@ -1,0 +1,21 @@
+# we want every change on lua files to trigger new tag release
+name: Tag Commits
+
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - "**.lua"
+    - "**.toc"
+    - ".pkgmeta"
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Bump version and push tag
+      id: tag_version
+      uses: mathieudutour/github-tag-action@v6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}

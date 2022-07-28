@@ -1,0 +1,17 @@
+name: Dispatch Commands
+on:
+  issue_comment:
+    types: [created, edited]
+jobs:
+  slashCommandDispatch:
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Slash Command Dispatch
+      uses: peter-evans/slash-command-dispatch@v3
+      with:
+        issue-type: issue
+        token: ${{ secrets.BOT_ACCESS_TOKEN }}
+        commands: |
+          ban
+          unban

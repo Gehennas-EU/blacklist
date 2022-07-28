@@ -1,5 +1,1 @@
-GehennasBlacklist_Data = {
-    "Artorias",
-    "Warcrimesx",
-	"Civi",
-}
+GehennasBlacklist_Data = {};

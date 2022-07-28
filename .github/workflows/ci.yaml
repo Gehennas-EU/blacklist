@@ -1,0 +1,17 @@
+name: CI
+on:
+  pull_request:
+    branches:
+    - master
+    paths:
+    - "**.lua"
+    - ".luacheckrc"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install and run Luacheck
+      uses: nebularg/actions-luacheck@v1
+      with:
+        args: "--no-color -q"
