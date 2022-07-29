@@ -6,7 +6,7 @@ on:
     branches:
     - master
     paths:
-    - "**.lua"
+    - "blacklist.lua"
     - "**.toc"
     - ".pkgmeta"
 jobs:

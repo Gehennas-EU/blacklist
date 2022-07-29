@@ -82,7 +82,7 @@ function save_table(path, tbl)
 	for k,v in sortedPairs(tbl) do
 		file:write(string.format('\t["%s"] = {\n', k))
 		for banned, details in sortedPairs(v) do
-			if not details or details == 1 or #details == 0 then
+			if not details or not details["reason"] or not details["discord_url"] then
 				file:write(string.format('\t\t["%s"] = {},\n', banned))
 			else
 				file:write(string.format('\t\t["%s"] = {\n', banned))
