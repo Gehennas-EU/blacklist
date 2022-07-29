@@ -1,1 +1,5 @@
-GehennasBlacklist_Data = {};
+GehennasBlacklist_Data = {
+	["official"] = {
+		["Javoor"] = 1,
+	},
+};
