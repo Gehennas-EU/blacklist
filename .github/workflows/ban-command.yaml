@@ -31,6 +31,8 @@ jobs:
       with:
         token: ${{ secrets.BOT_ACCESS_TOKEN }}
         repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
-        comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
+        issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
         body: |
-          Blacklisted ${{ github.event.client_payload.slash_command.args.unnamed.all }}! ![KEKL](https://cdn.betterttv.net/emote/5e6a0d0a8c0f5c3723a904ef/2x)
+          Blacklisted ${{ github.event.client_payload.slash_command.args.unnamed.all }}!
+
+          ![KEKL](https://cdn.betterttv.net/emote/5e6a0d0a8c0f5c3723a904ef/2x)
