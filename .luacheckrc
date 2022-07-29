@@ -1,7 +1,8 @@
 std = "lua51"
 max_line_length = false
 exclude_files = {
-	".luacheckrc"
+	".luacheckrc",
+	".github/lib/table.lua"
 }
 ignore = {}
 globals = {
