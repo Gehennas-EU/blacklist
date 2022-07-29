@@ -15,12 +15,16 @@ jobs:
     - name: Ban
       run: |
         lua ban.lua ${{ github.event.client_payload.slash_command.args.named.list }} ${{ github.event.client_payload.slash_command.args.unnamed.all }}
-    - name: Rebase
+    - name: Install and run Luacheck
+      uses: nebularg/actions-luacheck@v1
+      with:
+        args: "--no-color -q"
+    - name: Commit ban
       run: |
         git config --global user.name "Gehennas-EU Bot"
         git config --global user.email 110223061+Gehennas-EU-Bot@users.noreply.github.com
         git remote add base https://x-access-token:${{ secrets.BOT_ACCESS_TOKEN }}@github.com/Gehennas-EU/blacklist.git
-        git commit -a -m "add ${{ github.event.client_payload.github.playload.args.unnamed.all }} in ${{ github.event.client_payload.slash_command.args.named.list }}" -m "closes #${{ github.event.client_payload.github.payload.issue.number }}"
+        git commit -a -m "add ${{ github.event.client_payload.slash_command.args.unnamed.all }} in ${{ github.event.client_payload.slash_command.args.named.list }}" -m "closes #${{ github.event.client_payload.github.payload.issue.number }}"
         git push
     - name: Update comment
       uses: peter-evans/create-or-update-comment@v2
@@ -29,4 +33,4 @@ jobs:
         repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
         comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
         body: |
-          Blacklisted ${{ github.event.client_payload.github.playload.args.unnamed.all }}! ![KEKL](https://cdn.betterttv.net/emote/5e6a0d0a8c0f5c3723a904ef/2x)
+          Blacklisted ${{ github.event.client_payload.slash_command.args.unnamed.all }}! ![KEKL](https://cdn.betterttv.net/emote/5e6a0d0a8c0f5c3723a904ef/2x)
