@@ -10,7 +10,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Create Package
       uses: QartemisT/packager@master
-      if: ${{ github.event_name != 'pull_request' }}
       with:
         args: -g bcc -n "Gehennas-Blacklist-Data-{project-version}{classic}"
       env:
