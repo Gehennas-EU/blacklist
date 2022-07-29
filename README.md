@@ -16,6 +16,7 @@ This repository contains list of blacklisted characters on WoW Classic Gehennas 
 The addon is available on
 
 - [Wago.io](https://addons.wago.io/addons/blacklist)
+- [WoW Interface](https://www.wowinterface.com/downloads/info26376-GehennasBlacklistData.html)
 
 ## How to add characters to the list
 

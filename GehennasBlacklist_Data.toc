@@ -11,5 +11,6 @@
 ## Version: @project-version@
 ## X-Website: https://github.com/Gehennas-EU/blacklist
 ## X-Wago-ID: Rn6VQ8Nd
+## X-WoWI-ID: 26376
 
 blacklist.lua
