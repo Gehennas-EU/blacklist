@@ -10,3 +10,5 @@ This repository contains list of blacklisted characters on WoW Classic Gehennas 
 
 
 ## How to add characters to the list
+
+Open a new [Blacklist Request issue](https://github.com/Gehennas-EU/blacklist/issues/new/choose) and follow the instructions.
