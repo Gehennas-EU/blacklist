@@ -2,7 +2,7 @@ name: Deploy addon release
 on:
   push:
     tags:
-    - "*"
+    - "**"
 jobs:
   deploy:
     runs-on: ubuntu-latest
