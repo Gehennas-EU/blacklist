@@ -1,0 +1,43 @@
+name: Blacklist Request
+description: Submit a blacklist request
+title: "[Blacklist Request]: "
+labels: ["blocklist-request"]
+assignees:
+- gehennas-eu-admins
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thanks for taking the time to fill out this blacklist report!
+- type: textarea
+  id: what-happened
+  attributes:
+    label: What happened?
+    description: Give us details lots of them?
+    placeholder: He scammed me!
+  validations:
+    required: true
+- type: input
+  id: names
+  attributes:
+    label: Character names
+    description: "Character names that you want to blacklist. Separate them with spaces."
+    placeholder: "Example: Javoor Obviousscammer"
+  validations:
+    required: true
+- type: dropdown
+  id: list
+  attributes:
+    label: Blacklist
+    description: Which list you want to add them to?
+    options:
+      - official
+  validations:
+    required: true
+- type: input
+  id: discord
+  attributes:
+    label: Discord link
+    description: "Discord link to the offense, if such exists"
+  validations:
+    required: false
