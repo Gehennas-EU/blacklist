@@ -10,6 +10,7 @@
 ## Author: fen4o
 ## Version: @project-version@
 ## X-Website: https://github.com/Gehennas-EU/blacklist
+## X-Curse-Project-ID: 652278
 ## X-Wago-ID: Rn6VQ8Nd
 ## X-WoWI-ID: 26376
 
