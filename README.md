@@ -9,6 +9,7 @@ This repository contains list of blacklisted characters on WoW Classic Gehennas 
 	- [Installation](#installation)
 	- [How to add characters to the list](#how-to-add-characters-to-the-list)
 	- [How the ban bot works](#how-the-ban-bot-works)
+	- [Ho the unban bot works](#ho-the-unban-bot-works)
 
 ## Installation
 
@@ -30,8 +31,22 @@ The bot reacts to messages set in issues by administrators of this repository. T
 /ban list=name_of_list reason="Some reason" discord=https://discord...... banned_player_1 banned_player_2 banned_player_3
 ```
 
-Only `list` and at least 1 banned player is required. For example>
+Only `list` and at least 1 banned player is required. For example:
 
 ```
 /ban list=official reason="Deathroll scammer" Javoor
+```
+
+## Ho the unban bot works
+
+The bot reacts to messages set in issues by administrators of this repository. The full syntax of the ban command is
+
+```
+/ban list=name_of_list banned_player_1 banned_player_2 banned_player_3
+```
+
+Only `list` and at least 1 banned player is required. For example>
+
+```
+/unban list=official Javoor
 ```
