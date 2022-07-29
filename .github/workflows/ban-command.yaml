@@ -19,6 +19,9 @@ jobs:
       uses: nebularg/actions-luacheck@v1
       with:
         args: "--no-color -q"
+        env:
+          BLACKLIST_REASON: ${{ github.event.client_payload.slash_command.args.named.reason }}
+          DISCORD_URL: ${{ github.event.client_payload.slash_command.args.named.discord }}
     - name: Commit ban
       run: |
         git config --global user.name "Gehennas-EU Bot"

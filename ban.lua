@@ -27,7 +27,10 @@ for i = 2, #params do
 		print(char .. " already banned. Skipping...")
 	else
 		print("adding " .. char .. " to the " .. blocklist .." blocklist")
-		GehennasBlacklist_Data[blocklist][char] = 1
+		GehennasBlacklist_Data[blocklist][char] = {
+			["reason"] = os.getenv("BLACKLIST_REASON"),
+			["discord_url"] = os.getenv("DISCORD_URL"),
+		}
 		anyBanned = true
 	end
 end

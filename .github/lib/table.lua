@@ -70,6 +70,7 @@ end
 
 -- we want to have the list to always be sorted so
 -- git history is clean pairs always returns items in undeterministic way
+-- TODO: this should be re-written to use recursion instead
 function save_table(path, tbl)
 	file, e = io.open(path, "w");
 	if not file then
@@ -80,8 +81,16 @@ function save_table(path, tbl)
 
 	for k,v in sortedPairs(tbl) do
 		file:write(string.format('\t["%s"] = {\n', k))
-		for banned, _ in sortedPairs(v) do
-			file:write(string.format('\t\t["%s"] = 1,\n', banned))
+		for banned, details in sortedPairs(v) do
+			if not details or details == 1 or #details == 0 then
+				file:write(string.format('\t\t["%s"] = {},\n', banned))
+			else
+				file:write(string.format('\t\t["%s"] = {\n', banned))
+				for k,v in sortedPairs(details) do
+					file:write(string.format('\t\t\t["%s"] = [[%s]],\n', k,v))
+				end
+				file:write('\t\t},\n')
+			end
 		end
 		file:write("\t},\n")
 	end
