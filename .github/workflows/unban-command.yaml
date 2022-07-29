@@ -1,9 +1,9 @@
-name: ban-command
+name: unban-command
 on:
   repository_dispatch:
-    types: [ban-command]
+    types: [unban-command]
 jobs:
-  ban:
+  unban:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout pull request
@@ -12,13 +12,9 @@ jobs:
         token: ${{ secrets.BOT_ACCESS_TOKEN }}
     - name: Install Lua
       uses: leafo/gh-actions-lua@v9
-    - name: Ban
-      with:
-        env:
-          BLACKLIST_REASON: ${{ github.event.client_payload.slash_command.args.named.reason }}
-          DISCORD_URL: ${{ github.event.client_payload.slash_command.args.named.discord }}
+    - name: Unban
       run: |
-        lua ban.lua ${{ github.event.client_payload.slash_command.args.named.list }} ${{ github.event.client_payload.slash_command.args.unnamed.all }}
+        lua unban.lua ${{ github.event.client_payload.slash_command.args.named.list }} ${{ github.event.client_payload.slash_command.args.unnamed.all }}
     - name: Install and run Luacheck
       uses: nebularg/actions-luacheck@v1
       with:
@@ -28,7 +24,7 @@ jobs:
         git config --global user.name "Gehennas-EU Bot"
         git config --global user.email 110223061+Gehennas-EU-Bot@users.noreply.github.com
         git remote add base https://x-access-token:${{ secrets.BOT_ACCESS_TOKEN }}@github.com/Gehennas-EU/blacklist.git
-        git commit -a -m "add ${{ github.event.client_payload.slash_command.args.unnamed.all }} in ${{ github.event.client_payload.slash_command.args.named.list }}; closes #${{ github.event.client_payload.github.payload.issue.number }}"
+        git commit -a -m "remove ${{ github.event.client_payload.slash_command.args.unnamed.all }} in ${{ github.event.client_payload.slash_command.args.named.list }}; closes #${{ github.event.client_payload.github.payload.issue.number }}"
         git push
     - name: Update comment
       uses: peter-evans/create-or-update-comment@v2
@@ -37,6 +33,6 @@ jobs:
         repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
         issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
         body: |
-          Blacklisted ${{ github.event.client_payload.slash_command.args.unnamed.all }}!
+          No longer Blacklisted ${{ github.event.client_payload.slash_command.args.unnamed.all }}!
 
-          ![KEKL](https://cdn.betterttv.net/emote/5e6a0d0a8c0f5c3723a904ef/2x)
+          ![KEKWait](https://cdn.betterttv.net/emote/619928e554f3344f88068ac1/2x)

@@ -4,6 +4,7 @@ exclude_files = {
 	".luacheckrc",
 	".github/lib/table.lua",
 	"ban.lua",
+	"unban.lua",
 }
 ignore = {
 	"save_table"
